@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio da turma 2025.08.52 do curso Técnico em Desenvolvimento de Sistemas do SENAC Taguatinga." />
+  <meta name="theme-color" content="#0b0d12" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portfólio TDS 2025.08.52 | SENAC Taguatinga" />
+  <meta property="og:description" content="Projetos desenvolvidos pela turma 2025.08.52 do Técnico em Desenvolvimento de Sistemas do SENAC Taguatinga." />
+  <meta property="og:image" content="img/logo.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portfólio TDS 2025.08.52 | SENAC Taguatinga" />
+  <meta name="twitter:description" content="Projetos desenvolvidos pela turma 2025.08.52 do Técnico em Desenvolvimento de Sistemas do SENAC Taguatinga." />
+  <meta name="twitter:image" content="img/logo.jpeg" />
+  <title>Portfólio TDS 2025.08.52 | SENAC Taguatinga</title>
+
+  <style>
+    :root{
+      --bg:#f5f6f8;
+      --surface:#ffffff;
+      --surface-2:#eef1f4;
+      --text:#202b38;
+      --muted:#667383;
+      --line:#dfe4ea;
+      --accent:#075b96;
+      --accent-2:#f58220;
+      --max:1180px;
+      --radius:24px;
+      --shadow:0 18px 48px rgba(31,48,66,.10);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    .svg-defs{position:absolute;width:0;height:0;overflow:hidden}
+    body{
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(7,91,150,.09), transparent 30rem),
+        radial-gradient(circle at 90% 20%, rgba(245,130,32,.065), transparent 28rem),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(calc(100% - 40px),var(--max));margin-inline:auto}
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+    .section{padding:110px 0;scroll-margin-top:88px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      color:var(--accent);font-size:.76rem;font-weight:800;
+      letter-spacing:.14em;text-transform:uppercase;
+    }
+    .eyebrow::before{content:"";width:24px;height:1px;background:currentColor}
+    .section-head{
+      display:flex;justify-content:space-between;align-items:flex-end;
+      gap:32px;margin-bottom:46px;
+    }
+    .section-title{
+      max-width:760px;font-size:clamp(2.2rem,5vw,4.6rem);
+      line-height:.98;letter-spacing:-.055em;margin-top:14px;
+    }
+    .section-copy{max-width:450px;color:var(--muted)}
+
+    /* NAV */
+    .nav-wrap{
+      position:fixed;z-index:1000;top:0;left:0;width:100%;
+      border-bottom:1px solid transparent;
+      transition:.3s ease;
+    }
+    .nav-wrap.scrolled{
+      background:rgba(255,255,255,.88);
+      border-color:var(--line);
+      backdrop-filter:blur(18px);
+    }
+    .nav{
+      min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em}
+    .brand-logo{
+      display:block;flex:0 0 90px;width:90px;height:52px;object-fit:contain;
+      filter:url(#remove-logo-background);
+    }
+    .nav-links{display:flex;align-items:center;gap:30px;color:#465465;font-size:.92rem}
+    .nav-links a{transition:.2s ease}
+    .nav-links a:hover,.nav-links a:focus-visible{color:var(--accent)}
+    .nav-cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 17px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--accent);font-weight:800;
+    }
+    .menu-btn{
+      display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:13px;
+      background:var(--surface);color:var(--text);cursor:pointer;
+    }
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 72px}
+    .hero-inner{display:flex;align-items:center;justify-content:space-between;gap:70px;width:100%}
+    .hero-copy{flex:1 1 620px}
+    .hero h1{
+      font-size:clamp(3.2rem,7.5vw,7.2rem);line-height:.88;
+      letter-spacing:-.07em;max-width:900px;margin:22px 0 28px;
+    }
+    .hero h1 span{color:var(--accent)}
+    .hero-lead{max-width:680px;color:var(--muted);font-size:clamp(1rem,1.5vw,1.18rem)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+    .btn{
+      min-height:50px;padding:0 20px;border-radius:14px;
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      border:1px solid var(--line);font-weight:800;transition:.22s ease;
+    }
+    .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .btn-secondary{background:rgba(255,255,255,.72);color:var(--text)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,48,66,.10)}
+    .hero-panel{
+      flex:0 1 390px;min-width:320px;padding:24px;border:1px solid var(--line);
+      border-radius:32px;background:linear-gradient(160deg,#fff,#f2f5f8);
+      box-shadow:var(--shadow);border-color:rgba(7,91,150,.12);
+    }
+    .panel-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.78rem;margin-bottom:28px}
+    .panel-dot{width:9px;height:9px;background:var(--accent-2);border-radius:50%;box-shadow:0 0 14px rgba(245,130,32,.35)}
+    .panel-number{font-size:6rem;line-height:1;font-weight:900;letter-spacing:-.08em}
+    .panel-label{color:var(--muted);margin-top:4px}
+    .panel-line{height:1px;background:var(--line);margin:25px 0}
+    .panel-meta{display:flex;justify-content:space-between;gap:20px;font-size:.9rem}
+    .panel-meta span{color:var(--muted);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+
+    .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .stats-inner{display:flex;flex-wrap:wrap}
+    .stat{flex:1 1 220px;padding:28px 24px;border-right:1px solid var(--line)}
+    .stat:first-child{padding-left:0}
+    .stat:last-child{border-right:0}
+    .stat strong{display:block;font-size:1.35rem;letter-spacing:-.04em}
+    .stat span{color:var(--muted);font-size:.85rem}
+
+    /* PROJECTS */
+    .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+    .filter-btn{
+      border:1px solid var(--line);background:rgba(255,255,255,.65);color:#526173;
+      border-radius:999px;padding:10px 16px;cursor:pointer;transition:.2s ease;
+    }
+    .filter-btn:hover,.filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .projects{display:flex;flex-wrap:wrap;gap:18px}
+    .project-card{
+      flex:1 1 calc(50% - 18px);min-width:330px;min-height:390px;
+      border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+      background:linear-gradient(145deg,#fff,#fbfcfd);
+      display:flex;flex-direction:column;justify-content:space-between;
+      position:relative;overflow:hidden;transition:.28s ease;
+    }
+    .project-card::after{
+      content:"";position:absolute;width:230px;height:230px;border-radius:50%;
+      right:-100px;top:-110px;background:radial-gradient(circle,rgba(245,130,32,.12),transparent 67%);
+      pointer-events:none;
+    }
+    .project-card:hover{transform:translateY(-4px);border-color:rgba(7,91,150,.28);box-shadow:var(--shadow)}
+    .project-card.hidden{display:none}
+    .project-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+    .project-number{font-size:.78rem;color:var(--muted);letter-spacing:.14em}
+    .project-category{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+    .project-card h3{font-size:clamp(1.8rem,3vw,3rem);line-height:1;letter-spacing:-.055em;margin:48px 0 14px;max-width:90%}
+    .project-card p{color:var(--muted);max-width:520px}
+    .project-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:35px}
+    .project-actions .btn{min-height:44px;padding:0 15px;font-size:.86rem}
+
+    /* ABOUT */
+    .about-grid{display:flex;gap:70px;align-items:flex-start}
+    .about-main{flex:1 1 600px}
+    .about-main p{font-size:clamp(1.35rem,2.4vw,2.05rem);line-height:1.35;letter-spacing:-.03em;color:#344253}
+    .about-info{flex:0 1 390px;border-top:1px solid var(--line)}
+    .info-row{display:flex;justify-content:space-between;gap:25px;padding:18px 0;border-bottom:1px solid var(--line)}
+    .info-row span{color:var(--muted);font-size:.82rem}
+    .info-row strong{text-align:right;font-size:.9rem}
+
+    /* TECH */
+    .tech-list{display:flex;flex-wrap:wrap;gap:12px}
+    .tech{
+      padding:15px 20px;border:1px solid var(--line);border-radius:14px;
+      background:rgba(255,255,255,.8);font-weight:750;color:#455365;
+    }
+
+
+    /* STACK */
+    .stack-flow{
+      display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:13px;
+      padding:18px 22px;margin-bottom:22px;border:1px solid var(--line);border-radius:18px;
+      background:rgba(255,255,255,.78);font-size:.76rem;font-weight:900;letter-spacing:.1em;
+    }
+    .stack-flow span{color:#405064}
+    .stack-flow b{color:var(--accent);font-weight:500}
+    .stack-grid{display:flex;flex-wrap:wrap;gap:18px}
+    .stack-card{
+      flex:1 1 calc(50% - 18px);min-width:330px;padding:28px;border:1px solid var(--line);
+      border-radius:var(--radius);background:linear-gradient(145deg,#fff,#fbfcfd);
+      position:relative;overflow:hidden;
+    }
+    .stack-index{
+      position:absolute;right:24px;top:20px;color:rgba(7,91,150,.12);
+      font-size:2rem;font-weight:900;letter-spacing:-.05em;
+    }
+    .stack-card h3{
+      margin:25px 0 14px;font-size:clamp(1.7rem,3vw,2.7rem);
+      line-height:1.03;letter-spacing:-.05em;
+    }
+    .stack-card p{color:var(--muted);max-width:540px}
+    .stack-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+    .stack-tags span{
+      padding:8px 11px;border:1px solid var(--line);border-radius:999px;
+      color:#4a5869;background:#f5f7f9;font-size:.76rem;font-weight:750;
+    }
+    .stack-note{
+      margin-top:20px;padding-left:16px;border-left:2px solid var(--accent);
+      color:var(--muted);font-size:.84rem;max-width:900px;
+    }
+
+    /* CTA */
+    .final-cta{padding:50px;border:1px solid rgba(7,91,150,.13);border-radius:32px;background:linear-gradient(120deg,rgba(7,91,150,.07),rgba(245,130,32,.075));display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+    .final-cta h2{font-size:clamp(2.5rem,6vw,5.5rem);line-height:.95;letter-spacing:-.06em;max-width:780px}
+    .final-cta p{color:var(--muted);margin-top:20px;max-width:630px}
+
+    footer{padding:45px 0;border-top:1px solid var(--line);margin-top:110px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:35px}
+    .footer-title{font-size:1.2rem;font-weight:900}
+    .footer-copy{color:var(--muted);font-size:.85rem;margin-top:8px;max-width:650px}
+    .footer-tag{color:var(--muted);font-size:.8rem;text-align:right}
+
+    :focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+    @media(max-width:900px){
+      .nav-links{
+        display:none;position:absolute;top:68px;left:20px;right:20px;
+        flex-direction:column;align-items:stretch;padding:20px;border:1px solid var(--line);
+        border-radius:20px;background:#fff;box-shadow:var(--shadow);
+      }
+      .nav-links.open{display:flex}
+      .nav-cta{width:100%}
+      .menu-btn{display:block}
+      .hero-inner,.about-grid,.section-head,.final-cta{flex-direction:column;align-items:flex-start}
+      .hero-panel{width:100%;max-width:520px;min-width:0;transform:none}
+      .section-head{margin-bottom:34px}
+      .section-copy{max-width:680px}
+      .project-card{flex-basis:100%}
+      .about-info{width:100%;flex-basis:auto}
+    }
+
+    @media(max-width:620px){
+      .container{width:min(calc(100% - 28px),var(--max))}
+      .nav{gap:12px}
+      .brand{gap:8px;font-size:.88rem}
+      .brand-logo{flex-basis:72px;width:72px;height:42px}
+      .section{padding:80px 0}
+      .hero{padding-top:110px}
+      .hero h1{font-size:clamp(3.1rem,16vw,5.2rem)}
+      .project-card{min-width:0;min-height:350px;padding:22px}
+      .stack-card{min-width:0;flex-basis:100%;padding:22px}
+      .stack-flow{justify-content:flex-start}
+      .stat{flex-basis:50%;border-bottom:1px solid var(--line);padding:20px 14px}
+      .stat:first-child{padding-left:14px}
+      .final-cta{padding:28px}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+      .footer-tag{text-align:left}
+      .info-row{flex-direction:column;gap:5px}
+      .info-row strong{text-align:left}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition:none!important;animation:none!important}
+    }
+  </style>
+</head>
+
+<body>
+  <svg aria-hidden="true" focusable="false" class="svg-defs">
+    <filter id="remove-logo-background" color-interpolation-filters="sRGB" x="-10%" y="-10%" width="120%" height="120%">
+      <feColorMatrix type="matrix" values="
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        -2.126 -7.152 -0.722 10 0" />
+    </filter>
+  </svg>
+  <header class="nav-wrap" id="navbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand" aria-label="Voltar ao início">
+        <img class="brand-logo" src="img/Senac_logo.svg.webp" alt="Logo do SENAC" />
+        <span>TDS / 2025.08.52</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="https://www.df.senac.br/curso/tecnico-em-desenvolvimento-de-sistemas/" target="_blank" rel="noopener noreferrer">Curso SENAC ↗</a>
+        <a class="nav-cta" href="#projetos">Explorar projetos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">SENAC • TDS • Turma 2025.08.52</span>
+          <h1>Ideias que viraram <span>software.</span></h1>
+          <p class="hero-lead">
+            Portfólio coletivo dos estudantes do Técnico em Desenvolvimento de Sistemas do
+            SENAC — Centro de Educação Profissional Jó Rufino e Carlos Aguiar, em Taguatinga/DF.
+            Projetos que conectam aprendizado e solução de problemas reais, explorando o desenvolvimento
+            full stack — da interface e APIs à persistência de dados, versionamento e deploy.
+          </p>
+          <div class="hero-actions">
+            <a href="#projetos" class="btn btn-primary">Explorar projetos ↓</a>
+            <a href="#sobre" class="btn btn-secondary">Conhecer a turma</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Resumo do portfólio">
+          <div class="panel-top">
+            <span>PORTFÓLIO / 2025</span>
+            <span class="panel-dot" aria-hidden="true"></span>
+          </div>
+          <div class="panel-number">10</div>
+          <div class="panel-label">projetos publicados</div>
+          <div class="panel-line"></div>
+          <div class="panel-meta">
+            <div><span>Formação</span>Técnico em DS</div>
+            <div><span>Local</span>Taguatinga / DF</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="container stats-inner">
+        <div class="stat"><strong>10 projetos</strong><span>Experiências digitais publicadas</span></div>
+        <div class="stat"><strong>01 turma</strong><span>2025.08.52</span></div>
+        <div class="stat"><strong>Full Stack</strong><span>Frontend • Backend • Dados • Deploy</span></div>
+        <div class="stat"><strong>SENAC</strong><span>Taguatinga — Distrito Federal</span></div>
+      </div>
+    </div>
+
+    <section class="section" id="projetos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Projetos</span>
+            <h2 class="section-title">Construído para aprender. Publicado para mostrar.</h2>
+          </div>
+          <p class="section-copy">
+            Explore aplicações de gestão, experiências web e projetos de impacto social desenvolvidos pela turma.
+          </p>
+        </div>
+
+        <div class="filters" aria-label="Filtrar projetos">
+          <button class="filter-btn active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter-btn" type="button" data-filter="gestao" aria-pressed="false">Gestão</button>
+          <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Websites</button>
+          <button class="filter-btn" type="button" data-filter="pet" aria-pressed="false">Pet</button>
+          <button class="filter-btn" type="button" data-filter="entretenimento" aria-pressed="false">Entretenimento</button>
+        </div>
+        <p class="sr-only" id="projectFilterStatus" aria-live="polite">Mostrando 10 projetos.</p>
+
+        <div class="projects" aria-describedby="projectFilterStatus">
+          <article class="project-card" data-category="gestao">
+            <div>
+              <div class="project-top"><span class="project-number">01 / 10</span><span class="project-category">Gestão Condominial</span></div>
+              <h3>Condominium</h3>
+              <p>Plataforma de gestão condominial criada para organizar e apoiar processos administrativos em uma experiência digital centralizada.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://condominium-landing.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/LuizHenriqueCFontes/condominium-management" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="gestao pet">
+            <div>
+              <div class="project-top"><span class="project-number">02 / 10</span><span class="project-category">Gestão • Pet</span></div>
+              <h3>PetGestão</h3>
+              <p>Sistema de gestão para clínicas veterinárias e pet shops, pensado para centralizar processos do segmento pet.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://sistema-pet-nine.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/geovan-na/sistema-pet" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="gestao">
+            <div>
+              <div class="project-top"><span class="project-number">03 / 10</span><span class="project-category">Logística</span></div>
+              <h3>FreteLabs</h3>
+              <p>Sistema de gestão logística desenvolvido para apoiar a organização de processos e operações do setor.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://fretelabs-react-20.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/geovan-na/fretelabs-react-2.0" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="gestao">
+            <div>
+              <div class="project-top"><span class="project-number">04 / 10</span><span class="project-category">Frota • Locadora</span></div>
+              <h3>Optimus Experience</h3>
+              <p>Plataforma de gestão de frota e locadora de veículos com foco em organização operacional e experiência de uso.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://optimus-experience-zmr2.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/AlanySouza2203/Optimus_Experience" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="gestao web">
+            <div>
+              <div class="project-top"><span class="project-number">05 / 10</span><span class="project-category">Biblioteca</span></div>
+              <h3>Biblioteca GP5</h3>
+              <p>Aplicação web voltada à organização e gestão de uma biblioteca, aplicando conceitos de desenvolvimento de sistemas.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://biblioteca-gp5.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/LuizHenriqueCFontes/biblioteca-gp5" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div>
+              <div class="project-top"><span class="project-number">06 / 10</span><span class="project-category">Gastronomia</span></div>
+              <h3>Sabor &amp; Arte</h3>
+              <p>Experiência web para o segmento gastronômico, combinando apresentação visual, conteúdo e navegação responsiva.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://sabor-arte-gamma.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/AlanySouza2203/Sabor-Arte" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div>
+              <div class="project-top"><span class="project-number">07 / 10</span><span class="project-category">Arquitetura</span></div>
+              <h3>ArqVision</h3>
+              <p>Website de arquitetura desenvolvido para apresentar serviços, projetos e identidade visual de forma contemporânea.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://arq-vision-arquitetura-2iiq.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/AlanySouza2203/ArqVision---Arquitetura" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web entretenimento">
+            <div>
+              <div class="project-top"><span class="project-number">08 / 10</span><span class="project-category">Streaming</span></div>
+              <h3>Waltera Studios</h3>
+              <p>Projeto de plataforma de streaming e entretenimento com foco em interface, conteúdo e experiência digital.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://streaming-waltera-studios.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/AlanySouza2203/Streaming-waltera-studios" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web pet">
+            <div>
+              <div class="project-top"><span class="project-number">09 / 10</span><span class="project-category">Impacto Social • Pet</span></div>
+              <h3>AdotePet</h3>
+              <p>Aplicação voltada à adoção de animais, aproximando possíveis adotantes de iniciativas de proteção animal.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://abrigo-animal-react.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/AlanySouza2203/abrigo-animal-react" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web pet">
+            <div>
+              <div class="project-top"><span class="project-number">10 / 10</span><span class="project-category">Impacto Social • Pet</span></div>
+              <h3>Abrigo Animais</h3>
+              <p>Projeto web dedicado à divulgação de animais e iniciativas relacionadas a abrigo e adoção responsável.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://luizhenriquecfontes.github.io/abrigo-animais/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/LuizHenriqueCFontes/abrigo-animais" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Sobre a turma</span>
+            <h2 class="section-title">Aprender construindo.</h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-main">
+            <p>
+              Este portfólio reúne projetos desenvolvidos pelos estudantes da turma
+              <strong>2025.08.52</strong> e representa a aplicação prática do ciclo de desenvolvimento
+              de software. Ao longo da formação, a turma trabalhou com construção de interfaces,
+              desenvolvimento de APIs e regras de negócio, integração com bancos de dados,
+              versionamento de código e publicação de aplicações.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-secondary" href="https://www.df.senac.br/curso/tecnico-em-desenvolvimento-de-sistemas/" target="_blank" rel="noopener noreferrer">Conhecer o curso ↗</a>
+            </div>
+          </div>
+
+          <div class="about-info">
+            <div class="info-row"><span>Formação</span><strong>Técnico em Desenvolvimento de Sistemas</strong></div>
+            <div class="info-row"><span>Turma</span><strong>2025.08.52</strong></div>
+            <div class="info-row"><span>Instituição</span><strong>SENAC</strong></div>
+            <div class="info-row"><span>Unidade</span><strong>Centro de Educação Profissional Jó Rufino e Carlos Aguiar</strong></div>
+            <div class="info-row"><span>Local</span><strong>Taguatinga — Distrito Federal</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tecnologias">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Stack &amp; Competências</span>
+            <h2 class="section-title">Tecnologia aplicada de ponta a ponta.</h2>
+          </div>
+          <p class="section-copy">
+            Ao longo da formação, a turma explorou diferentes camadas de uma aplicação:
+            interface, backend, APIs, persistência de dados, versionamento e publicação.
+          </p>
+        </div>
+
+        <div class="stack-flow" aria-label="Fluxo de desenvolvimento">
+          <span>REACT</span><b>→</b><span>API</span><b>→</b><span>NODE / SPRING</span><b>→</b><span>MYSQL</span><b>→</b><span>GIT</span><b>→</b><span>DEPLOY</span>
+        </div>
+
+        <div class="stack-grid">
+          <article class="stack-card">
+            <div class="stack-index">01</div>
+            <span class="project-category">Frontend</span>
+            <h3>Interfaces &amp;<br>Experiência</h3>
+            <p>Construção de interfaces web, componentização, interatividade e adaptação para diferentes dispositivos.</p>
+            <div class="stack-tags">
+              <span>React</span><span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>Responsividade</span><span>UI / UX</span>
+            </div>
+          </article>
+
+          <article class="stack-card">
+            <div class="stack-index">02</div>
+            <span class="project-category">Backend &amp; APIs</span>
+            <h3>Regras de negócio<br>&amp; Integrações</h3>
+            <p>Desenvolvimento da camada de servidor, construção de APIs e integração entre frontend, serviços e dados.</p>
+            <div class="stack-tags">
+              <span>Node.js</span><span>Express</span><span>Java</span><span>Spring Boot</span><span>APIs</span>
+            </div>
+          </article>
+
+          <article class="stack-card">
+            <div class="stack-index">03</div>
+            <span class="project-category">Dados</span>
+            <h3>Modelagem &amp;<br>Persistência</h3>
+            <p>Organização, armazenamento e acesso a dados para sustentar as funcionalidades das aplicações.</p>
+            <div class="stack-tags">
+              <span>MySQL</span><span>Banco de Dados</span><span>Modelagem</span><span>Persistência</span>
+            </div>
+          </article>
+
+          <article class="stack-card">
+            <div class="stack-index">04</div>
+            <span class="project-category">Engenharia &amp; Entrega</span>
+            <h3>Do código<br>à publicação</h3>
+            <p>Controle de versões, colaboração em repositórios e publicação das aplicações em ambientes de deploy.</p>
+            <div class="stack-tags">
+              <span>Git</span><span>GitHub</span><span>Versionamento</span><span>Deploy</span><span>Vercel</span><span>GitHub Pages</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="stack-note">
+          As tecnologias acima representam competências e ferramentas trabalhadas pela turma ao longo da formação.
+          A composição tecnológica pode variar entre os projetos apresentados neste portfólio.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="final-cta">
+          <div>
+            <span class="eyebrow">TDS 2025.08.52</span>
+            <h2>10 projetos.<br>Uma jornada.</h2>
+            <p>Explore as soluções desenvolvidas pela turma e veja como frontend, backend, dados, versionamento e deploy se conectam na construção de produtos digitais.</p>
+          </div>
+          <a href="#projetos" class="btn btn-primary">Ver projetos ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-title">TDS / 2025.08.52</div>
+        <p class="footer-copy">
+          Técnico em Desenvolvimento de Sistemas — SENAC, Centro de Educação Profissional Jó Rufino e Carlos Aguiar, Taguatinga/DF.
+        </p>
+      </div>
+      <div class="footer-tag">Portfólio acadêmico • <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const projectFilterStatus = document.getElementById('projectFilterStatus');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    const closeMenu = () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Abrir menu');
+      menuBtn.textContent = '☰';
+    };
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
+
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open);
+      menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      menuBtn.textContent = open ? '×' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        });
+        button.classList.add('active');
+        button.setAttribute('aria-pressed', 'true');
+
+        const filter = button.dataset.filter;
+        let visibleProjects = 0;
+
+        projectCards.forEach(card => {
+          const categories = card.dataset.category.split(' ');
+          const shouldHide = filter !== 'todos' && !categories.includes(filter);
+
+          card.classList.toggle('hidden', shouldHide);
+          card.hidden = shouldHide;
+
+          if (!shouldHide) {
+            visibleProjects += 1;
+          }
+        });
+
+        projectFilterStatus.textContent = `Mostrando ${visibleProjects} ${visibleProjects === 1 ? 'projeto' : 'projetos'}.`;
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
