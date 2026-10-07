@@ -35,10 +35,7 @@
     .svg-defs{position:absolute;width:0;height:0;overflow:hidden}
     body{
       min-height:100vh;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(7,91,150,.09), transparent 30rem),
-        radial-gradient(circle at 90% 20%, rgba(245,130,32,.065), transparent 28rem),
-        var(--bg);
+      background:var(--bg);
       color:var(--text);
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height:1.6;
@@ -121,7 +118,7 @@
     .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,48,66,.10)}
     .hero-panel{
       flex:0 1 390px;min-width:320px;padding:24px;border:1px solid var(--line);
-      border-radius:32px;background:linear-gradient(160deg,#fff,#f2f5f8);
+      border-radius:32px;background:var(--surface);
       box-shadow:var(--shadow);border-color:rgba(7,91,150,.12);
     }
     .panel-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.78rem;margin-bottom:28px}
@@ -151,14 +148,9 @@
     .project-card{
       flex:1 1 calc(50% - 18px);min-width:330px;min-height:390px;
       border:1px solid var(--line);border-radius:var(--radius);padding:28px;
-      background:linear-gradient(145deg,#fff,#fbfcfd);
+      background:var(--surface);
       display:flex;flex-direction:column;justify-content:space-between;
       position:relative;overflow:hidden;transition:.28s ease;
-    }
-    .project-card::after{
-      content:"";position:absolute;width:230px;height:230px;border-radius:50%;
-      right:-100px;top:-110px;background:radial-gradient(circle,rgba(245,130,32,.12),transparent 67%);
-      pointer-events:none;
     }
     .project-card:hover{transform:translateY(-4px);border-color:rgba(7,91,150,.28);box-shadow:var(--shadow)}
     .project-card.hidden{display:none}
@@ -198,7 +190,7 @@
     .stack-grid{display:flex;flex-wrap:wrap;gap:18px}
     .stack-card{
       flex:1 1 calc(50% - 18px);min-width:330px;padding:28px;border:1px solid var(--line);
-      border-radius:var(--radius);background:linear-gradient(145deg,#fff,#fbfcfd);
+      border-radius:var(--radius);background:var(--surface);
       position:relative;overflow:hidden;
     }
     .stack-index{
@@ -221,7 +213,7 @@
     }
 
     /* CTA */
-    .final-cta{padding:50px;border:1px solid rgba(7,91,150,.13);border-radius:32px;background:linear-gradient(120deg,rgba(7,91,150,.07),rgba(245,130,32,.075));display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+    .final-cta{padding:50px;border:1px solid rgba(7,91,150,.13);border-radius:32px;background:var(--surface-2);display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
     .final-cta h2{font-size:clamp(2.5rem,6vw,5.5rem);line-height:.95;letter-spacing:-.06em;max-width:780px}
     .final-cta p{color:var(--muted);margin-top:20px;max-width:630px}
 
@@ -274,10 +266,43 @@
       html{scroll-behavior:auto}
       *,*::before,*::after{transition:none!important;animation:none!important}
     }
+    /* Reading comfort and compact project browsing */
+    :root{--shadow:0 8px 24px rgba(31,48,66,.06)}
+    .section{padding:72px 0;scroll-margin-top:96px}
+    .section-title{font-size:clamp(2rem,4vw,3.2rem);line-height:1.12;letter-spacing:-.035em}
+    .hero{min-height:0;padding:132px 0 64px}
+    .hero h1{font-size:clamp(2.8rem,5.5vw,4.8rem);line-height:1.06;letter-spacing:-.045em;margin:20px 0 24px}
+    .hero-lead{max-width:58ch}
+    .project-card{min-height:290px}
+    .project-card h3{font-size:clamp(1.5rem,2.5vw,2rem);line-height:1.2;letter-spacing:-.025em;margin:24px 0 12px;max-width:100%}
+    .project-card p{max-width:55ch}
+    .project-card:hover{transform:translateY(-2px)}
+    .project-actions{gap:12px;margin-top:24px}
+    .project-actions .btn-secondary{background:transparent;border-color:transparent;color:var(--accent);font-weight:600}
+    .project-actions .btn-secondary:hover{background:var(--surface-2);box-shadow:none;transform:none}
+    .about-main p{font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.75}
+    .stack-card h3{font-size:clamp(1.5rem,2.5vw,2rem);line-height:1.2}
+    .final-cta h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}
+    footer{margin-top:48px}
+    .skip-link{position:fixed;top:12px;left:16px;z-index:1100;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;transform:translateY(-160%)}
+    .skip-link:focus{transform:translateY(0)}
+    .filter-status{color:var(--muted);font-size:.9rem;margin:-12px 0 24px}
+    .filter-count{margin-left:6px;font-size:.8rem;opacity:.85}
+    @media(max-width:900px){
+      .hero-inner,.about-grid{gap:32px}
+      .hero-copy,.hero-panel,.about-main{flex:0 1 auto}
+    }
+    @media(max-width:620px){
+      .section{padding:48px 0}
+      .hero{padding:110px 0 48px}
+      .hero h1{font-size:clamp(2.6rem,11vw,3.6rem)}
+      .project-card{min-height:0}
+    }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <svg aria-hidden="true" focusable="false" class="svg-defs">
     <filter id="remove-logo-background" color-interpolation-filters="sRGB" x="-10%" y="-10%" width="120%" height="120%">
       <feColorMatrix type="matrix" values="
@@ -301,22 +326,20 @@
         <a href="#sobre">Sobre</a>
         <a href="#tecnologias">Tecnologias</a>
         <a href="https://www.df.senac.br/curso/tecnico-em-desenvolvimento-de-sistemas/" target="_blank" rel="noopener noreferrer">Curso SENAC ↗</a>
-        <a class="nav-cta" href="#projetos">Explorar projetos</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="conteudo" tabindex="-1">
     <section class="hero" id="inicio">
       <div class="container hero-inner">
         <div class="hero-copy">
           <span class="eyebrow">SENAC • TDS • Turma 2025.08.52</span>
           <h1>Ideias que viraram <span>software.</span></h1>
           <p class="hero-lead">
-            Portfólio coletivo dos estudantes do Técnico em Desenvolvimento de Sistemas do
-            SENAC — Centro de Educação Profissional Jó Rufino e Carlos Aguiar, em Taguatinga/DF.
-            Projetos que conectam aprendizado e solução de problemas reais, explorando o desenvolvimento
-            full stack — da interface e APIs à persistência de dados, versionamento e deploy.
+            Conheça os projetos da turma 2025.08.52 do Técnico em Desenvolvimento de Sistemas
+            do SENAC Taguatinga. Ideias, aprendizado e soluções para problemas reais,
+            da interface à publicação.
           </p>
           <div class="hero-actions">
             <a href="#projetos" class="btn btn-primary">Explorar projetos ↓</a>
@@ -329,7 +352,7 @@
             <span>PORTFÓLIO / 2025</span>
             <span class="panel-dot" aria-hidden="true"></span>
           </div>
-          <div class="panel-number">10</div>
+          <div class="panel-number">15</div>
           <div class="panel-label">projetos publicados</div>
           <div class="panel-line"></div>
           <div class="panel-meta">
@@ -342,7 +365,7 @@
 
     <div class="stats">
       <div class="container stats-inner">
-        <div class="stat"><strong>10 projetos</strong><span>Experiências digitais publicadas</span></div>
+        <div class="stat"><strong>15 projetos</strong><span>Experiências digitais publicadas</span></div>
         <div class="stat"><strong>01 turma</strong><span>2025.08.52</span></div>
         <div class="stat"><strong>Full Stack</strong><span>Frontend • Backend • Dados • Deploy</span></div>
         <div class="stat"><strong>SENAC</strong><span>Taguatinga — Distrito Federal</span></div>
@@ -354,7 +377,7 @@
         <div class="section-head">
           <div>
             <span class="eyebrow">Projetos</span>
-            <h2 class="section-title">Construído para aprender. Publicado para mostrar.</h2>
+            <h2 class="section-title">Explore os projetos da turma.</h2>
           </div>
           <p class="section-copy">
             Explore aplicações de gestão, experiências web e projetos de impacto social desenvolvidos pela turma.
@@ -368,12 +391,12 @@
           <button class="filter-btn" type="button" data-filter="pet" aria-pressed="false">Pet</button>
           <button class="filter-btn" type="button" data-filter="entretenimento" aria-pressed="false">Entretenimento</button>
         </div>
-        <p class="sr-only" id="projectFilterStatus" aria-live="polite">Mostrando 10 projetos.</p>
+        <p class="filter-status" id="projectFilterStatus" aria-live="polite">Mostrando 15 projetos.</p>
 
         <div class="projects" aria-describedby="projectFilterStatus">
           <article class="project-card" data-category="gestao">
             <div>
-              <div class="project-top"><span class="project-number">01 / 10</span><span class="project-category">Gestão Condominial</span></div>
+              <div class="project-top"><span class="project-number">01 / 15</span><span class="project-category">Gestão Condominial</span></div>
               <h3>Condominium</h3>
               <p>Plataforma de gestão condominial criada para organizar e apoiar processos administrativos em uma experiência digital centralizada.</p>
             </div>
@@ -385,7 +408,7 @@
 
           <article class="project-card" data-category="gestao pet">
             <div>
-              <div class="project-top"><span class="project-number">02 / 10</span><span class="project-category">Gestão • Pet</span></div>
+              <div class="project-top"><span class="project-number">02 / 15</span><span class="project-category">Gestão • Pet</span></div>
               <h3>PetGestão</h3>
               <p>Sistema de gestão para clínicas veterinárias e pet shops, pensado para centralizar processos do segmento pet.</p>
             </div>
@@ -397,7 +420,7 @@
 
           <article class="project-card" data-category="gestao">
             <div>
-              <div class="project-top"><span class="project-number">03 / 10</span><span class="project-category">Logística</span></div>
+              <div class="project-top"><span class="project-number">03 / 15</span><span class="project-category">Logística</span></div>
               <h3>FreteLabs</h3>
               <p>Sistema de gestão logística desenvolvido para apoiar a organização de processos e operações do setor.</p>
             </div>
@@ -409,7 +432,7 @@
 
           <article class="project-card" data-category="gestao">
             <div>
-              <div class="project-top"><span class="project-number">04 / 10</span><span class="project-category">Frota • Locadora</span></div>
+              <div class="project-top"><span class="project-number">04 / 15</span><span class="project-category">Frota • Locadora</span></div>
               <h3>Optimus Experience</h3>
               <p>Plataforma de gestão de frota e locadora de veículos com foco em organização operacional e experiência de uso.</p>
             </div>
@@ -421,7 +444,7 @@
 
           <article class="project-card" data-category="gestao web">
             <div>
-              <div class="project-top"><span class="project-number">05 / 10</span><span class="project-category">Biblioteca</span></div>
+              <div class="project-top"><span class="project-number">05 / 15</span><span class="project-category">Biblioteca</span></div>
               <h3>Biblioteca GP5</h3>
               <p>Aplicação web voltada à organização e gestão de uma biblioteca, aplicando conceitos de desenvolvimento de sistemas.</p>
             </div>
@@ -433,7 +456,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">06 / 10</span><span class="project-category">Gastronomia</span></div>
+              <div class="project-top"><span class="project-number">06 / 15</span><span class="project-category">Gastronomia</span></div>
               <h3>Sabor &amp; Arte</h3>
               <p>Experiência web para o segmento gastronômico, combinando apresentação visual, conteúdo e navegação responsiva.</p>
             </div>
@@ -445,7 +468,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">07 / 10</span><span class="project-category">Arquitetura</span></div>
+              <div class="project-top"><span class="project-number">07 / 15</span><span class="project-category">Arquitetura</span></div>
               <h3>ArqVision</h3>
               <p>Website de arquitetura desenvolvido para apresentar serviços, projetos e identidade visual de forma contemporânea.</p>
             </div>
@@ -457,7 +480,7 @@
 
           <article class="project-card" data-category="web entretenimento">
             <div>
-              <div class="project-top"><span class="project-number">08 / 10</span><span class="project-category">Streaming</span></div>
+              <div class="project-top"><span class="project-number">08 / 15</span><span class="project-category">Streaming</span></div>
               <h3>Waltera Studios</h3>
               <p>Projeto de plataforma de streaming e entretenimento com foco em interface, conteúdo e experiência digital.</p>
             </div>
@@ -469,7 +492,7 @@
 
           <article class="project-card" data-category="web pet">
             <div>
-              <div class="project-top"><span class="project-number">09 / 10</span><span class="project-category">Impacto Social • Pet</span></div>
+              <div class="project-top"><span class="project-number">09 / 15</span><span class="project-category">Impacto Social • Pet</span></div>
               <h3>AdotePet</h3>
               <p>Aplicação voltada à adoção de animais, aproximando possíveis adotantes de iniciativas de proteção animal.</p>
             </div>
@@ -481,13 +504,73 @@
 
           <article class="project-card" data-category="web pet">
             <div>
-              <div class="project-top"><span class="project-number">10 / 10</span><span class="project-category">Impacto Social • Pet</span></div>
+              <div class="project-top"><span class="project-number">10 / 15</span><span class="project-category">Impacto Social • Pet</span></div>
               <h3>Abrigo Animais</h3>
               <p>Projeto web dedicado à divulgação de animais e iniciativas relacionadas a abrigo e adoção responsável.</p>
             </div>
             <div class="project-actions">
               <a class="btn btn-primary" href="https://luizhenriquecfontes.github.io/abrigo-animais/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
               <a class="btn btn-secondary" href="https://github.com/LuizHenriqueCFontes/abrigo-animais" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div>
+              <div class="project-top"><span class="project-number">11 / 15</span><span class="project-category">Gastronomia</span></div>
+              <h3>Restaurante</h3>
+              <p>Website para restaurante, com apresentação do estabelecimento e de sua proposta gastronômica.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://larissydarc.github.io/Restaurante/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/LarissyDarc/Restaurante" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div>
+              <div class="project-top"><span class="project-number">12 / 15</span><span class="project-category">Imobiliária</span></div>
+              <h3>IMOBILIARIA</h3>
+              <p>Website para o setor imobiliário, voltado à apresentação de imóveis e serviços da empresa.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://larissydarc.github.io/IMOBILIARIA/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/LarissyDarc/IMOBILIARIA" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div>
+              <div class="project-top"><span class="project-number">13 / 15</span><span class="project-category">Moda • E-commerce</span></div>
+              <h3>Brechó de Luxo</h3>
+              <p>Projeto web de brechó com foco em moda e na apresentação de peças selecionadas.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://larissydarc.github.io/Brecho-de-luxo/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/LarissyDarc/Brecho-de-luxo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div>
+              <div class="project-top"><span class="project-number">14 / 15</span><span class="project-category">Educação • Idiomas</span></div>
+              <h3>Escola de Idiomas</h3>
+              <p>Website institucional para uma escola de idiomas, apresentando sua oferta educacional.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://larissydarc.github.io/ESCOLA-DE-IDIOMAS/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/LarissyDarc/ESCOLA-DE-IDIOMAS" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div>
+              <div class="project-top"><span class="project-number">15 / 15</span><span class="project-category">Saúde • Odontologia</span></div>
+              <h3>Clínica Odontológica</h3>
+              <p>Website para clínica odontológica, com informações sobre os serviços e atendimento da clínica.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://larissydarc.github.io/Clinica-Odontologica/" target="_blank" rel="noopener noreferrer">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/LarissyDarc/Clinica-Odontologica" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             </div>
           </article>
         </div>
@@ -599,7 +682,7 @@
         <div class="final-cta">
           <div>
             <span class="eyebrow">TDS 2025.08.52</span>
-            <h2>10 projetos.<br>Uma jornada.</h2>
+            <h2>15 projetos.<br>Uma jornada.</h2>
             <p>Explore as soluções desenvolvidas pela turma e veja como frontend, backend, dados, versionamento e deploy se conectam na construção de produtos digitais.</p>
           </div>
           <a href="#projetos" class="btn btn-primary">Ver projetos ↑</a>
@@ -628,6 +711,27 @@
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
+    filterButtons.forEach(button => {
+      const filter = button.dataset.filter;
+      const count = [...projectCards].filter(card => filter === 'todos' || card.dataset.category.split(' ').includes(filter)).length;
+      const badge = document.createElement('span');
+      badge.className = 'filter-count';
+      badge.textContent = count;
+      badge.setAttribute('aria-hidden', 'true');
+      button.appendChild(badge);
+    });
+
+    projectCards.forEach(card => {
+      const name = card.querySelector('h3').textContent;
+      const links = card.querySelectorAll('.project-actions a');
+      links[0].setAttribute('aria-label', `Ver projeto ${name} (abre em nova aba)`);
+      links[1].textContent = 'Código no GitHub ↗';
+      links[1].setAttribute('aria-label', `Código de ${name} no GitHub (abre em nova aba)`);
+    });
+
+    const updateNavbar = () => navbar.classList.toggle('scrolled', window.scrollY > 24);
+    updateNavbar();
+
     const closeMenu = () => {
       navLinks.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
@@ -635,9 +739,7 @@
       menuBtn.textContent = '☰';
     };
 
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 24);
-    }, { passive: true });
+    window.addEventListener('scroll', updateNavbar, { passive: true });
 
     menuBtn.addEventListener('click', () => {
       const open = navLinks.classList.toggle('open');
@@ -651,8 +753,9 @@
     });
 
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && navLinks.classList.contains('open')) {
         closeMenu();
+        menuBtn.focus();
       }
     });
 
