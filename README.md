@@ -5,7 +5,7 @@ Portfólio coletivo dos estudantes do curso Técnico em Desenvolvimento de Siste
 ## Conteúdo
 
 - Apresentação da turma e do portfólio.
-- Vitrine com 15 projetos, com links para as aplicações e seus repositórios.
+- Vitrine com 18 projetos, com links para as aplicações e seus repositórios.
 - Filtros de projetos por categoria.
 - Seções sobre a turma e as tecnologias trabalhadas.
 - Navegação responsiva para dispositivos móveis.
