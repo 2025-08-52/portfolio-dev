@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <script>document.documentElement.classList.remove("no-js");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfólio da turma 2025.08.52 do curso Técnico em Desenvolvimento de Sistemas do SENAC Taguatinga." />
-  <meta name="theme-color" content="#0b0d12" />
+  <meta name="theme-color" content="#f5f6f8" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Portfólio TDS 2025.08.52 | SENAC Taguatinga" />
   <meta property="og:description" content="Projetos desenvolvidos pela turma 2025.08.52 do Técnico em Desenvolvimento de Sistemas do SENAC Taguatinga." />
@@ -15,290 +16,7 @@
   <meta name="twitter:image" content="img/logo.jpeg" />
   <title>Portfólio TDS 2025.08.52 | SENAC Taguatinga</title>
 
-  <style>
-    :root{
-      --bg:#f5f6f8;
-      --surface:#ffffff;
-      --surface-2:#eef1f4;
-      --text:#202b38;
-      --muted:#667383;
-      --line:#dfe4ea;
-      --accent:#075b96;
-      --accent-2:#f58220;
-      --max:1180px;
-      --radius:24px;
-      --shadow:0 18px 48px rgba(31,48,66,.10);
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    .svg-defs{position:absolute;width:0;height:0;overflow:hidden}
-    body{
-      min-height:100vh;
-      background:var(--bg);
-      color:var(--text);
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height:1.6;
-      overflow-x:hidden;
-    }
-
-    a{color:inherit;text-decoration:none}
-    button{font:inherit}
-    .container{width:min(calc(100% - 40px),var(--max));margin-inline:auto}
-    .sr-only{
-      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-    }
-    .section{padding:110px 0;scroll-margin-top:88px}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:9px;
-      color:var(--accent);font-size:.76rem;font-weight:800;
-      letter-spacing:.14em;text-transform:uppercase;
-    }
-    .eyebrow::before{content:"";width:24px;height:1px;background:currentColor}
-    .section-head{
-      display:flex;justify-content:space-between;align-items:flex-end;
-      gap:32px;margin-bottom:46px;
-    }
-    .section-title{
-      max-width:760px;font-size:clamp(2.2rem,5vw,4.6rem);
-      line-height:.98;letter-spacing:-.055em;margin-top:14px;
-    }
-    .section-copy{max-width:450px;color:var(--muted)}
-
-    /* NAV */
-    .nav-wrap{
-      position:fixed;z-index:1000;top:0;left:0;width:100%;
-      border-bottom:1px solid transparent;
-      transition:.3s ease;
-    }
-    .nav-wrap.scrolled{
-      background:rgba(255,255,255,.88);
-      border-color:var(--line);
-      backdrop-filter:blur(18px);
-    }
-    .nav{
-      min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px;
-    }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em}
-    .brand-logo{
-      display:block;flex:0 0 90px;width:90px;height:52px;object-fit:contain;
-      filter:url(#remove-logo-background);
-    }
-    .nav-links{display:flex;align-items:center;gap:30px;color:#465465;font-size:.92rem}
-    .nav-links a{transition:.2s ease}
-    .nav-links a:hover,.nav-links a:focus-visible{color:var(--accent)}
-    .nav-cta{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:11px 17px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--accent);font-weight:800;
-    }
-    .menu-btn{
-      display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:13px;
-      background:var(--surface);color:var(--text);cursor:pointer;
-    }
-
-    /* HERO */
-    .hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 72px}
-    .hero-inner{display:flex;align-items:center;justify-content:space-between;gap:70px;width:100%}
-    .hero-copy{flex:1 1 620px}
-    .hero h1{
-      font-size:clamp(3.2rem,7.5vw,7.2rem);line-height:.88;
-      letter-spacing:-.07em;max-width:900px;margin:22px 0 28px;
-    }
-    .hero h1 span{color:var(--accent)}
-    .hero-lead{max-width:680px;color:var(--muted);font-size:clamp(1rem,1.5vw,1.18rem)}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-    .btn{
-      min-height:50px;padding:0 20px;border-radius:14px;
-      display:inline-flex;align-items:center;justify-content:center;gap:9px;
-      border:1px solid var(--line);font-weight:800;transition:.22s ease;
-    }
-    .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .btn-secondary{background:rgba(255,255,255,.72);color:var(--text)}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,48,66,.10)}
-    .hero-panel{
-      flex:0 1 390px;min-width:320px;padding:24px;border:1px solid var(--line);
-      border-radius:32px;background:var(--surface);
-      box-shadow:var(--shadow);border-color:rgba(7,91,150,.12);
-    }
-    .panel-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.78rem;margin-bottom:28px}
-    .panel-dot{width:9px;height:9px;background:var(--accent-2);border-radius:50%;box-shadow:0 0 14px rgba(245,130,32,.35)}
-    .panel-number{font-size:6rem;line-height:1;font-weight:900;letter-spacing:-.08em}
-    .panel-label{color:var(--muted);margin-top:4px}
-    .panel-line{height:1px;background:var(--line);margin:25px 0}
-    .panel-meta{display:flex;justify-content:space-between;gap:20px;font-size:.9rem}
-    .panel-meta span{color:var(--muted);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-
-    .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .stats-inner{display:flex;flex-wrap:wrap}
-    .stat{flex:1 1 220px;padding:28px 24px;border-right:1px solid var(--line)}
-    .stat:first-child{padding-left:0}
-    .stat:last-child{border-right:0}
-    .stat strong{display:block;font-size:1.35rem;letter-spacing:-.04em}
-    .stat span{color:var(--muted);font-size:.85rem}
-
-    /* PROJECTS */
-    .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
-    .filter-btn{
-      border:1px solid var(--line);background:rgba(255,255,255,.65);color:#526173;
-      border-radius:999px;padding:10px 16px;cursor:pointer;transition:.2s ease;
-    }
-    .filter-btn:hover,.filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .projects{display:flex;flex-wrap:wrap;gap:18px}
-    .project-card{
-      flex:1 1 calc(50% - 18px);min-width:330px;min-height:390px;
-      border:1px solid var(--line);border-radius:var(--radius);padding:28px;
-      background:var(--surface);
-      display:flex;flex-direction:column;justify-content:space-between;
-      position:relative;overflow:hidden;transition:.28s ease;
-    }
-    .project-card:hover{transform:translateY(-4px);border-color:rgba(7,91,150,.28);box-shadow:var(--shadow)}
-    .project-card.hidden{display:none}
-    .project-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
-    .project-number{font-size:.78rem;color:var(--muted);letter-spacing:.14em}
-    .project-category{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
-    .project-card h3{font-size:clamp(1.8rem,3vw,3rem);line-height:1;letter-spacing:-.055em;margin:48px 0 14px;max-width:90%}
-    .project-card p{color:var(--muted);max-width:520px}
-    .project-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:35px}
-    .project-actions .btn{min-height:44px;padding:0 15px;font-size:.86rem}
-
-    /* ABOUT */
-    .about-grid{display:flex;gap:70px;align-items:flex-start}
-    .about-main{flex:1 1 600px}
-    .about-main p{font-size:clamp(1.35rem,2.4vw,2.05rem);line-height:1.35;letter-spacing:-.03em;color:#344253}
-    .about-info{flex:0 1 390px;border-top:1px solid var(--line)}
-    .info-row{display:flex;justify-content:space-between;gap:25px;padding:18px 0;border-bottom:1px solid var(--line)}
-    .info-row span{color:var(--muted);font-size:.82rem}
-    .info-row strong{text-align:right;font-size:.9rem}
-
-    /* TECH */
-    .tech-list{display:flex;flex-wrap:wrap;gap:12px}
-    .tech{
-      padding:15px 20px;border:1px solid var(--line);border-radius:14px;
-      background:rgba(255,255,255,.8);font-weight:750;color:#455365;
-    }
-
-
-    /* STACK */
-    .stack-flow{
-      display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:13px;
-      padding:18px 22px;margin-bottom:22px;border:1px solid var(--line);border-radius:18px;
-      background:rgba(255,255,255,.78);font-size:.76rem;font-weight:900;letter-spacing:.1em;
-    }
-    .stack-flow span{color:#405064}
-    .stack-flow b{color:var(--accent);font-weight:500}
-    .stack-grid{display:flex;flex-wrap:wrap;gap:18px}
-    .stack-card{
-      flex:1 1 calc(50% - 18px);min-width:330px;padding:28px;border:1px solid var(--line);
-      border-radius:var(--radius);background:var(--surface);
-      position:relative;overflow:hidden;
-    }
-    .stack-index{
-      position:absolute;right:24px;top:20px;color:rgba(7,91,150,.12);
-      font-size:2rem;font-weight:900;letter-spacing:-.05em;
-    }
-    .stack-card h3{
-      margin:25px 0 14px;font-size:clamp(1.7rem,3vw,2.7rem);
-      line-height:1.03;letter-spacing:-.05em;
-    }
-    .stack-card p{color:var(--muted);max-width:540px}
-    .stack-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
-    .stack-tags span{
-      padding:8px 11px;border:1px solid var(--line);border-radius:999px;
-      color:#4a5869;background:#f5f7f9;font-size:.76rem;font-weight:750;
-    }
-    .stack-note{
-      margin-top:20px;padding-left:16px;border-left:2px solid var(--accent);
-      color:var(--muted);font-size:.84rem;max-width:900px;
-    }
-
-    /* CTA */
-    .final-cta{padding:50px;border:1px solid rgba(7,91,150,.13);border-radius:32px;background:var(--surface-2);display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
-    .final-cta h2{font-size:clamp(2.5rem,6vw,5.5rem);line-height:.95;letter-spacing:-.06em;max-width:780px}
-    .final-cta p{color:var(--muted);margin-top:20px;max-width:630px}
-
-    footer{padding:45px 0;border-top:1px solid var(--line);margin-top:110px}
-    .footer-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:35px}
-    .footer-title{font-size:1.2rem;font-weight:900}
-    .footer-copy{color:var(--muted);font-size:.85rem;margin-top:8px;max-width:650px}
-    .footer-tag{color:var(--muted);font-size:.8rem;text-align:right}
-
-    :focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-
-    @media(max-width:900px){
-      .nav-links{
-        display:none;position:absolute;top:68px;left:20px;right:20px;
-        flex-direction:column;align-items:stretch;padding:20px;border:1px solid var(--line);
-        border-radius:20px;background:#fff;box-shadow:var(--shadow);
-      }
-      .nav-links.open{display:flex}
-      .nav-cta{width:100%}
-      .menu-btn{display:block}
-      .hero-inner,.about-grid,.section-head,.final-cta{flex-direction:column;align-items:flex-start}
-      .hero-panel{width:100%;max-width:520px;min-width:0;transform:none}
-      .section-head{margin-bottom:34px}
-      .section-copy{max-width:680px}
-      .project-card{flex-basis:100%}
-      .about-info{width:100%;flex-basis:auto}
-    }
-
-    @media(max-width:620px){
-      .container{width:min(calc(100% - 28px),var(--max))}
-      .nav{gap:12px}
-      .brand{gap:8px;font-size:.88rem}
-      .brand-logo{flex-basis:72px;width:72px;height:42px}
-      .section{padding:80px 0}
-      .hero{padding-top:110px}
-      .hero h1{font-size:clamp(3.1rem,16vw,5.2rem)}
-      .project-card{min-width:0;min-height:350px;padding:22px}
-      .stack-card{min-width:0;flex-basis:100%;padding:22px}
-      .stack-flow{justify-content:flex-start}
-      .stat{flex-basis:50%;border-bottom:1px solid var(--line);padding:20px 14px}
-      .stat:first-child{padding-left:14px}
-      .final-cta{padding:28px}
-      .footer-inner{flex-direction:column;align-items:flex-start}
-      .footer-tag{text-align:left}
-      .info-row{flex-direction:column;gap:5px}
-      .info-row strong{text-align:left}
-    }
-
-    @media(prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      *,*::before,*::after{transition:none!important;animation:none!important}
-    }
-    /* Reading comfort and compact project browsing */
-    :root{--shadow:0 8px 24px rgba(31,48,66,.06)}
-    .section{padding:72px 0;scroll-margin-top:96px}
-    .section-title{font-size:clamp(2rem,4vw,3.2rem);line-height:1.12;letter-spacing:-.035em}
-    .hero{min-height:0;padding:132px 0 64px}
-    .hero h1{font-size:clamp(2.8rem,5.5vw,4.8rem);line-height:1.06;letter-spacing:-.045em;margin:20px 0 24px}
-    .hero-lead{max-width:58ch}
-    .project-card{min-height:290px}
-    .project-card h3{font-size:clamp(1.5rem,2.5vw,2rem);line-height:1.2;letter-spacing:-.025em;margin:24px 0 12px;max-width:100%}
-    .project-card p{max-width:55ch}
-    .project-card:hover{transform:translateY(-2px)}
-    .project-actions{gap:12px;margin-top:24px}
-    .project-actions .btn-secondary{background:transparent;border-color:transparent;color:var(--accent);font-weight:600}
-    .project-actions .btn-secondary:hover{background:var(--surface-2);box-shadow:none;transform:none}
-    .about-main p{font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.75}
-    .stack-card h3{font-size:clamp(1.5rem,2.5vw,2rem);line-height:1.2}
-    .final-cta h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}
-    footer{margin-top:48px}
-    .skip-link{position:fixed;top:12px;left:16px;z-index:1100;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;transform:translateY(-160%)}
-    .skip-link:focus{transform:translateY(0)}
-    .filter-status{color:var(--muted);font-size:.9rem;margin:-12px 0 24px}
-    .filter-count{margin-left:6px;font-size:.8rem;opacity:.85}
-    @media(max-width:900px){
-      .hero-inner,.about-grid{gap:32px}
-      .hero-copy,.hero-panel,.about-main{flex:0 1 auto}
-    }
-    @media(max-width:620px){
-      .section{padding:48px 0}
-      .hero{padding:110px 0 48px}
-      .hero h1{font-size:clamp(2.6rem,11vw,3.6rem)}
-      .project-card{min-height:0}
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -352,7 +70,7 @@
             <span>PORTFÓLIO / 2025</span>
             <span class="panel-dot" aria-hidden="true"></span>
           </div>
-          <div class="panel-number">18</div>
+          <div class="panel-number" data-project-total>19</div>
           <div class="panel-label">projetos publicados</div>
           <div class="panel-line"></div>
           <div class="panel-meta">
@@ -365,7 +83,7 @@
 
     <div class="stats">
       <div class="container stats-inner">
-        <div class="stat"><strong>18 projetos</strong><span>Experiências digitais publicadas</span></div>
+        <div class="stat"><strong><span data-project-total>19</span> projetos</strong><span>Experiências digitais publicadas</span></div>
         <div class="stat"><strong>01 turma</strong><span>2025.08.52</span></div>
         <div class="stat"><strong>Full Stack</strong><span>Frontend • Backend • Dados • Deploy</span></div>
         <div class="stat"><strong>SENAC</strong><span>Taguatinga — Distrito Federal</span></div>
@@ -384,19 +102,37 @@
           </p>
         </div>
 
+        <div class="project-tools">
+          <label class="search-label" for="projectSearch">Encontre um projeto</label>
+          <input class="project-search" id="projectSearch" type="search" placeholder="Busque por nome, tema ou descrição" autocomplete="off" />
         <div class="filters" aria-label="Filtrar projetos">
           <button class="filter-btn active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
           <button class="filter-btn" type="button" data-filter="gestao" aria-pressed="false">Gestão</button>
           <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Websites</button>
+          <button class="filter-btn" type="button" data-filter="saude" aria-pressed="false">Saúde</button>
           <button class="filter-btn" type="button" data-filter="pet" aria-pressed="false">Pet</button>
           <button class="filter-btn" type="button" data-filter="entretenimento" aria-pressed="false">Entretenimento</button>
         </div>
-        <p class="filter-status" id="projectFilterStatus" aria-live="polite">Mostrando 18 projetos.</p>
+        </div>
+        <p class="filter-status" id="projectFilterStatus" aria-live="polite">Mostrando 19 projetos.</p>
 
         <div class="projects" aria-describedby="projectFilterStatus">
+          <article class="project-card featured" data-category="web saude">
+            <div>
+              <div class="project-top"><span class="project-number">01 / 19</span><span class="project-category">Saúde • Novo no portfólio</span></div>
+              <h3>Amora Odontologia</h3>
+              <p>Website de odontologia desenvolvido por Luiz Henrique C. Fontes, apresentado como parte dos projetos da turma.</p>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="https://luizhenriquecfontes.github.io/amora-odontologia/" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto Amora Odontologia (abre em nova aba)">Ver projeto ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/LuizHenriqueCFontes/amora-odontologia" target="_blank" rel="noopener noreferrer" aria-label="Código de Amora Odontologia no GitHub (abre em nova aba)">Código no GitHub ↗</a>
+            </div>
+          </article>
+
+
           <article class="project-card" data-category="gestao">
             <div>
-              <div class="project-top"><span class="project-number">01 / 18</span><span class="project-category">Gestão Condominial</span></div>
+              <div class="project-top"><span class="project-number">02 / 19</span><span class="project-category">Gestão Condominial</span></div>
               <h3>Condominium</h3>
               <p>Plataforma de gestão condominial criada para organizar e apoiar processos administrativos em uma experiência digital centralizada.</p>
             </div>
@@ -408,7 +144,7 @@
 
           <article class="project-card" data-category="gestao pet">
             <div>
-              <div class="project-top"><span class="project-number">02 / 18</span><span class="project-category">Gestão • Pet</span></div>
+              <div class="project-top"><span class="project-number">03 / 19</span><span class="project-category">Gestão • Pet</span></div>
               <h3>PetGestão</h3>
               <p>Sistema de gestão para clínicas veterinárias e pet shops, pensado para centralizar processos do segmento pet.</p>
             </div>
@@ -420,7 +156,7 @@
 
           <article class="project-card" data-category="gestao">
             <div>
-              <div class="project-top"><span class="project-number">03 / 18</span><span class="project-category">Logística</span></div>
+              <div class="project-top"><span class="project-number">04 / 19</span><span class="project-category">Logística</span></div>
               <h3>FreteLabs</h3>
               <p>Sistema de gestão logística desenvolvido para apoiar a organização de processos e operações do setor.</p>
             </div>
@@ -432,7 +168,7 @@
 
           <article class="project-card" data-category="gestao">
             <div>
-              <div class="project-top"><span class="project-number">04 / 18</span><span class="project-category">Frota • Locadora</span></div>
+              <div class="project-top"><span class="project-number">05 / 19</span><span class="project-category">Frota • Locadora</span></div>
               <h3>Optimus Experience</h3>
               <p>Plataforma de gestão de frota e locadora de veículos com foco em organização operacional e experiência de uso.</p>
             </div>
@@ -444,7 +180,7 @@
 
           <article class="project-card" data-category="gestao web">
             <div>
-              <div class="project-top"><span class="project-number">05 / 18</span><span class="project-category">Biblioteca</span></div>
+              <div class="project-top"><span class="project-number">06 / 19</span><span class="project-category">Biblioteca</span></div>
               <h3>Biblioteca GP5</h3>
               <p>Aplicação web voltada à organização e gestão de uma biblioteca, aplicando conceitos de desenvolvimento de sistemas.</p>
             </div>
@@ -456,7 +192,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">06 / 18</span><span class="project-category">Gastronomia</span></div>
+              <div class="project-top"><span class="project-number">07 / 19</span><span class="project-category">Gastronomia</span></div>
               <h3>Sabor &amp; Arte</h3>
               <p>Experiência web para o segmento gastronômico, combinando apresentação visual, conteúdo e navegação responsiva.</p>
             </div>
@@ -468,7 +204,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">07 / 18</span><span class="project-category">Arquitetura</span></div>
+              <div class="project-top"><span class="project-number">08 / 19</span><span class="project-category">Arquitetura</span></div>
               <h3>ArqVision</h3>
               <p>Website de arquitetura desenvolvido para apresentar serviços, projetos e identidade visual de forma contemporânea.</p>
             </div>
@@ -480,7 +216,7 @@
 
           <article class="project-card" data-category="web entretenimento">
             <div>
-              <div class="project-top"><span class="project-number">08 / 18</span><span class="project-category">Streaming</span></div>
+              <div class="project-top"><span class="project-number">09 / 19</span><span class="project-category">Streaming</span></div>
               <h3>Waltera Studios</h3>
               <p>Projeto de plataforma de streaming e entretenimento com foco em interface, conteúdo e experiência digital.</p>
             </div>
@@ -492,7 +228,7 @@
 
           <article class="project-card" data-category="web pet">
             <div>
-              <div class="project-top"><span class="project-number">09 / 18</span><span class="project-category">Impacto Social • Pet</span></div>
+              <div class="project-top"><span class="project-number">10 / 19</span><span class="project-category">Impacto Social • Pet</span></div>
               <h3>AdotePet</h3>
               <p>Aplicação voltada à adoção de animais, aproximando possíveis adotantes de iniciativas de proteção animal.</p>
             </div>
@@ -504,7 +240,7 @@
 
           <article class="project-card" data-category="web pet">
             <div>
-              <div class="project-top"><span class="project-number">10 / 18</span><span class="project-category">Impacto Social • Pet</span></div>
+              <div class="project-top"><span class="project-number">11 / 19</span><span class="project-category">Impacto Social • Pet</span></div>
               <h3>Abrigo Animais</h3>
               <p>Projeto web dedicado à divulgação de animais e iniciativas relacionadas a abrigo e adoção responsável.</p>
             </div>
@@ -516,7 +252,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">11 / 18</span><span class="project-category">Gastronomia</span></div>
+              <div class="project-top"><span class="project-number">12 / 19</span><span class="project-category">Gastronomia</span></div>
               <h3>Restaurante</h3>
               <p>Website para restaurante, com apresentação do estabelecimento e de sua proposta gastronômica.</p>
             </div>
@@ -528,7 +264,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">12 / 18</span><span class="project-category">Imobiliária</span></div>
+              <div class="project-top"><span class="project-number">13 / 19</span><span class="project-category">Imobiliária</span></div>
               <h3>IMOBILIARIA</h3>
               <p>Website para o setor imobiliário, voltado à apresentação de imóveis e serviços da empresa.</p>
             </div>
@@ -540,7 +276,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">13 / 18</span><span class="project-category">Moda • E-commerce</span></div>
+              <div class="project-top"><span class="project-number">14 / 19</span><span class="project-category">Moda • E-commerce</span></div>
               <h3>Brechó de Luxo</h3>
               <p>Projeto web de brechó com foco em moda e na apresentação de peças selecionadas.</p>
             </div>
@@ -552,7 +288,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">14 / 18</span><span class="project-category">Educação • Idiomas</span></div>
+              <div class="project-top"><span class="project-number">15 / 19</span><span class="project-category">Educação • Idiomas</span></div>
               <h3>Escola de Idiomas</h3>
               <p>Website institucional para uma escola de idiomas, apresentando sua oferta educacional.</p>
             </div>
@@ -562,9 +298,9 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="web">
+          <article class="project-card" data-category="web saude">
             <div>
-              <div class="project-top"><span class="project-number">15 / 18</span><span class="project-category">Saúde • Odontologia</span></div>
+              <div class="project-top"><span class="project-number">16 / 19</span><span class="project-category">Saúde • Odontologia</span></div>
               <h3>Clínica Odontológica</h3>
               <p>Website para clínica odontológica, com informações sobre os serviços e atendimento da clínica.</p>
             </div>
@@ -576,7 +312,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">16 / 18</span><span class="project-category">Moda • Noivas</span></div>
+              <div class="project-top"><span class="project-number">17 / 19</span><span class="project-category">Moda • Noivas</span></div>
               <h3>Pérola Noivas</h3>
               <p>Website voltado ao universo das noivas, com apresentação da marca e de sua proposta para esse momento especial.</p>
             </div>
@@ -588,7 +324,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">17 / 18</span><span class="project-category">Sustentabilidade • Energia</span></div>
+              <div class="project-top"><span class="project-number">18 / 19</span><span class="project-category">Sustentabilidade • Energia</span></div>
               <h3>Energia Limpa</h3>
               <p>Projeto web sobre energia limpa e sustentabilidade, apresentando o tema em uma experiência digital.</p>
             </div>
@@ -600,7 +336,7 @@
 
           <article class="project-card" data-category="web">
             <div>
-              <div class="project-top"><span class="project-number">18 / 18</span><span class="project-category">Marketing Digital</span></div>
+              <div class="project-top"><span class="project-number">19 / 19</span><span class="project-category">Marketing Digital</span></div>
               <h3>Agência Marketing</h3>
               <p>Website para uma agência de marketing, voltado à apresentação da empresa e de seus serviços.</p>
             </div>
@@ -610,6 +346,7 @@
             </div>
           </article>
         </div>
+        <p class="empty-state" id="emptyState" hidden>Nenhum projeto encontrado. Tente outro termo ou categoria.</p>
       </div>
     </section>
 
@@ -719,7 +456,7 @@
         <div class="final-cta">
           <div>
             <span class="eyebrow">TDS 2025.08.52</span>
-            <h2>18 projetos.<br>Uma jornada.</h2>
+            <h2><span data-project-total>19</span> projetos.<br>Uma jornada.</h2>
             <p>Explore as soluções desenvolvidas pela turma e veja como frontend, backend, dados, versionamento e deploy se conectam na construção de produtos digitais.</p>
           </div>
           <a href="#projetos" class="btn btn-primary">Ver projetos ↑</a>
@@ -740,91 +477,6 @@
     </div>
   </footer>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    const projectFilterStatus = document.getElementById('projectFilterStatus');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    filterButtons.forEach(button => {
-      const filter = button.dataset.filter;
-      const count = [...projectCards].filter(card => filter === 'todos' || card.dataset.category.split(' ').includes(filter)).length;
-      const badge = document.createElement('span');
-      badge.className = 'filter-count';
-      badge.textContent = count;
-      badge.setAttribute('aria-hidden', 'true');
-      button.appendChild(badge);
-    });
-
-    projectCards.forEach(card => {
-      const name = card.querySelector('h3').textContent;
-      const links = card.querySelectorAll('.project-actions a');
-      links[0].setAttribute('aria-label', `Ver projeto ${name} (abre em nova aba)`);
-      links[1].textContent = 'Código no GitHub ↗';
-      links[1].setAttribute('aria-label', `Código de ${name} no GitHub (abre em nova aba)`);
-    });
-
-    const updateNavbar = () => navbar.classList.toggle('scrolled', window.scrollY > 24);
-    updateNavbar();
-
-    const closeMenu = () => {
-      navLinks.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      menuBtn.setAttribute('aria-label', 'Abrir menu');
-      menuBtn.textContent = '☰';
-    };
-
-    window.addEventListener('scroll', updateNavbar, { passive: true });
-
-    menuBtn.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', open);
-      menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-      menuBtn.textContent = open ? '×' : '☰';
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && navLinks.classList.contains('open')) {
-        closeMenu();
-        menuBtn.focus();
-      }
-    });
-
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => {
-          btn.classList.remove('active');
-          btn.setAttribute('aria-pressed', 'false');
-        });
-        button.classList.add('active');
-        button.setAttribute('aria-pressed', 'true');
-
-        const filter = button.dataset.filter;
-        let visibleProjects = 0;
-
-        projectCards.forEach(card => {
-          const categories = card.dataset.category.split(' ');
-          const shouldHide = filter !== 'todos' && !categories.includes(filter);
-
-          card.classList.toggle('hidden', shouldHide);
-          card.hidden = shouldHide;
-
-          if (!shouldHide) {
-            visibleProjects += 1;
-          }
-        });
-
-        projectFilterStatus.textContent = `Mostrando ${visibleProjects} ${visibleProjects === 1 ? 'projeto' : 'projetos'}.`;
-      });
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>

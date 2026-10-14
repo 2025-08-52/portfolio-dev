@@ -5,8 +5,9 @@ Portfólio coletivo dos estudantes do curso Técnico em Desenvolvimento de Siste
 ## Conteúdo
 
 - Apresentação da turma e do portfólio.
-- Vitrine com 18 projetos, com links para as aplicações e seus repositórios.
-- Filtros de projetos por categoria.
+- Vitrine com 19 projetos, com links para as aplicações e seus repositórios.
+- Filtros de projetos por categoria e busca por nome, tema ou descrição.
+- Amora Odontologia em destaque e categoria Saúde.
 - Seções sobre a turma e as tecnologias trabalhadas.
 - Navegação responsiva para dispositivos móveis.
 
@@ -24,13 +25,15 @@ O site é estático e não requer backend, dependências ou processo de build.
 1. Baixe ou clone este repositório.
 2. Abra o arquivo `index.html` em um navegador.
 
-Para editar o projeto, abra a pasta no VS Code e altere o HTML, os estilos ou o JavaScript incorporados em `index.html`.
+Para editar o projeto, abra a pasta no VS Code e altere o HTML, os estilos em `styles.css` ou o JavaScript em `script.js`.
 
 ## Estrutura
 
 ```text
 .
 ├── index.html
+├── styles.css
+├── script.js
 ├── README.md
 └── img/
     ├── Senac_logo.svg.webp
